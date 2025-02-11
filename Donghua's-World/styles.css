@@ -5,29 +5,29 @@
     text-decoration: none;
     list-style: none;
     outline: none;
-}
-#anuncio-direita-1{
-    position: absolute;
-    margin-top: 72px;
-    margin-left: 67rem;
-    width: 17rem;
-    height: 30rem;
+    box-sizing: border-box;
 }
 :root{
-    --fundo: rgb(113, 41, 228);
     --header: rgb(0, 0, 0);
+    --fundo: rgb(113, 41, 228);
     --text: rgb(255, 255, 255);
     --sub-header: gray;
+    --span: rgb(113, 41, 228);
+    --footer: rgb(44, 44, 44);
 }
 /* Tema Claro */
-:root:dark{
-    --fundo:  rgb(255, 255, 255);
-    --text: rgb(113, 41, 228);
-    --sub-header: rgb(255, 255, 255);
+.light-theme{
+    --header:  rgb(0, 0, 0);
+    --fundo:   rgb(0, 0, 0);
+    --text:  rgb(113, 41, 228);
+    --sub-header: gray;
+    --span: white;
 }
 body {
+    width: 100%;
     font-family: Arial, sans-serif;
     background: var(--fundo);
+    overflow-x: hidden;
 }
 header {
     background: var(--header);
@@ -35,13 +35,26 @@ header {
     width: 100%;
     height: 5rem;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
 }
 header p{
+    padding: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 25pt;
+    font-size: 26pt;
+    text-shadow: 0px 0px 10px var(--span),
+                0px 0px 20px var(--span),
+                0px 0px 40px var(--span),
+                0px 0px 80px var(--span);
+}
+footer{
+    background-color: var(--footer);
+    width: auto;
+    height: 10rem;
 }
 span{
-    color: var(--fundo);
+    color: var(--span);
     border-bottom: 1px red;
 }
 hr{
@@ -50,6 +63,29 @@ hr{
     position: absolute;
     width: 100%;
 }
+img{
+    object-fit: cover;
+    display: block;
+    height: 15rem;
+    width: 10rem;
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+}
+img:hover{
+    transform: translateY(-20px);
+    cursor: pointer;
+}
+i{
+    cursor: pointer;
+    font-size: 18px;
+    overflow-y: hidden;
+    color: var(--text);
+}
+i:hover{
+    color: var(--fundo);
+}
+
 .main-container{
     overflow: hidden;
     width: auto;
@@ -72,7 +108,7 @@ hr{
     transform: translateX(0);
 }
 #item{
-    background-color: var(--text);
+    background-color: var(--fundo);
     width: 10rem;
     height: 15rem;
     margin-left: 10px;
@@ -81,29 +117,60 @@ hr{
     justify-content: center;
     align-items: center;
 }
-img{
-    object-fit: cover;
+
+#anuncio-horizontal{
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 97%;
+    height: 10rem;
+    background-color: var(--sub-header);
+}
+
+#temaClaro, #temaEscuro{
+    position: absolute;
+    text-align: center;
+    top: 82px;
+    left: 20px;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+#temaClaro{
     display: block;
-    height: 15rem;
-    width: 10rem;
-    max-width: 100%;
+    color: var(--span);
+    border: 1px solid var(--text);
+}
+#temaEscuro{
+    display: none;
+    color: var(--fundo);
+    border: 1px solid var(--text);
+}
+#temaEscuro:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 1.5px var(--fundo);
+}
+#temaClaro:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 1.5px var(--span);
+}
+#mudar_tema:first-child:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 1.5px var(--text);
 }
 .sub-menu{
     background-color: var(--sub-header);
-    margin-top: 36px;
+    margin-top: 14px;
     width: auto;
     height: 2rem;
-    line-height: 1.8rem;
-    align-items: center;
+    line-height: 2.1rem;
 }
 .sub-menu ul{
-    z-index: 2;
     position: absolute;
     display: flex;
     justify-content: flex-end;
     gap: 30px;
     right: 40px;
-    color: rgb(113, 41, 228);
 }
 #pesquisar{
     display: none;
@@ -114,29 +181,35 @@ img{
     width: 10rem;
     height: 1.5rem;
     padding: 10px;
-    background-color: var(--header);
+    background-color: var(--text);
+    color: var(--fundo);
+    border-color: var(--fundo);
 }
-i{
-    cursor: pointer;
-    font-size: 18px;
-    color: var(--text);
+#pesquisar:hover{
+    border-color: var(--span);
+    opacity: 100%;
 }
 ul #perfil-infos{
-    /* display: none;    */
+    z-index: 2;
     position: absolute;
     display: flex;
     justify-content: center;
     padding: 0;
-    background-color: white;
-    width: 60px;
-    height: 66px;
     color: black;
     left: 74%;
 }
+ul #perfil-infos li:hover{
+    background-color: var(--fundo);
+    color: var(--text);
+}
 #perfil-infos li{
+    z-index: 2;
     border: 1px solid black;
     user-select: none;
     cursor: pointer;
+    background-color: var(--text);
+    width: 60px;
+    height: 30px;
 }
 h2{
     color: var(--text);
@@ -144,7 +217,7 @@ h2{
 .ver-mais{
     display: flex;
     justify-content: space-between;
-    width: 73%; /* Ajuste conforme necessário */
+    width: 97%; /* Ajuste conforme necessário */
     margin: 20px;
     align-items: center;
     user-select: none;
@@ -167,8 +240,8 @@ input:hover{
 section{
     margin: 20px;
     display: grid;
-    grid-template-columns: repeat(4, .185fr); /* 3 colunas de tamanho igual */
-    gap: 20px;
+    grid-template-columns: repeat(5, .2fr); /*colunas de tamanho igual */
+    gap: 25px;
     text-align: center;
 }
 section div p{
@@ -181,15 +254,33 @@ section div p{
 }
 section img{
     position: relative;
-    width: 15rem;
+    width: 16rem;
     height: 11rem;
+    border: 2px solid var(--text);
+}
+#conteudoTelaMenor{
+    display: none;
+}
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-track{
+    border-radius: 3px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    /* border-radius: 5px; */
+    background-color: var(--text);
 }
 @media (max-width: 700px) {
     ul #perfil-infos{
         left: 92%;
     }
     .ver-mais{
-        width: 95%
+        width: 94%
     }
     section img{
         position: relative;
@@ -197,14 +288,8 @@ section img{
         height: 8rem;
     }
     #item{
-        background-color: var(--text);
         width: 5rem;
         height: 10rem;
-        margin-left: 10px;
-        border-radius: 1vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     img{
         object-fit: cover;
@@ -229,14 +314,70 @@ section img{
     section{
         display: grid;
         grid-template-columns: repeat(4, 0.4fr); /* 3 colunas de tamanho igual */
-
     }
-    /* #anuncio-direita-1{
-        position: absolute;
-        margin-top: 74px;
-        margin-left: 27rem;
-        width: 13rem;
-        height: 32.7rem;
-    } */
+    #anuncio-horizontal{
+        width: 93.5%;
+    }
+    ul #perfil-infos{
+        left: 75%;
+    }
+    #conteudoTelaMenor{
+        display: block;
+    }
 }
-  
+@media (max-width: 320px) {
+    ul #perfil-infos{
+        left: 92%;
+    }
+    .ver-mais{
+        margin-top: 30px;
+        width: 87.5%;
+        font-size: 9pt;
+    }
+    input{
+        width: 4rem;
+        height: 2rem;
+        font-size: 9pt;
+    }
+    #item{
+        width: 5rem;
+        height: 7rem;
+    }
+    img{
+        object-fit: cover;
+        display: block;
+        height: 7rem;
+        width: 6rem;
+        max-width: 100%;
+    }
+    .main-container{
+        height: 8.5rem;
+    }
+    .container{
+        margin-top: 0px;
+        height: 8rem;
+    }
+    hr{
+        margin-top: 20px;
+        border: 2px solid var(--text);
+        position: absolute;
+        width: 100%;
+    }
+    section{
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(2, 0.7fr); /* 3 colunas de tamanho igual */
+    }
+    #anuncio-horizontal{
+        width: 5rem;
+    }
+    ul #perfil-infos{
+        left: 75%;
+    }
+    #conteudoTelaMenor{
+        display: block;
+    }
+    header p{
+        font-size: 15pt;
+    }
+} 

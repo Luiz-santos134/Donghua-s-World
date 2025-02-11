@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-adsense-account" content="ca-pub-9610449652649598">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2233922015315914"
+     crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donghua's World</title>
+    <link rel="stylesheet" href="stylesDonghua.css">
+</head>
+<body>
+  <header>
+    <p><span>D</span>ONGHUA'S <span>W</span>ORLD</p>
+
+    <div class="sub-menu">
+      <i class="fa-solid fa-sun" id="temaClaro" onclick="toggleTheme()"></i>
+      <i class="fa-solid fa-moon" id="temaEscuro" onclick="toggleTheme()"></i>
+      <ul>
+        <li>
+          <i class="fa-solid fa-search" onclick="mostrarPesquisa()" ></i>
+          <input type="text" name="pesquisar" id="pesquisar">
+        </li>
+
+        <a href="#">
+          <li>
+            <b><i class="fa-solid fa-home"></i></b>
+          </li>
+        </a>
+        
+        <li>
+          <i class="fa-solid fa-user" id="perfil-botao" onclick="mostrar()"></i>
+
+          <ul id="perfil-infos" style="display: none;">
+            <li onclick="acao('perfil')"><b>Perfil</b></li>
+            <li onclick="acao('salvos')"><b>Salvos</b></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+    <main>
+        <div id="info-container-donghua">
+            <div id="img-donghua-fundo">
+                <img src="" id="imagem" alt="Imagem do Donghua">
+            </div>
+            <div class="img-donghuar">
+                <img src="" class="imagem1" alt="Imagem do Donghua">
+            </div>
+
+            <div id="infos">
+              <h3 class="titulo">Título</h3>
+              <!-- <img id="imagem" src="" alt="Imagem do Donghua"> -->
+              <p id="descricao">Descrição</p>
+            </div>
+            
+        </div>
+
+        <div class="capitulos">
+          <div class="capitulos-container">
+            <a href="episodio.html?ep=1">
+              <div class="capitulo">
+                <img src="" class="imagem1" alt="">
+                <p>Episódio 1</p>
+                <h3 class="epTitulo" class="titulo"></h3>
+              </div>
+            </a>
+            <a href="episodio.html?ep=2">
+              <div class="capitulo">
+                <img src="" class="imagem1" alt="">
+                <p>Episódio 2</p>
+                <h3 class="epTitulo" class="titulo"></h3>
+              </div>
+            </a>
+            <a href="episodio.html?ep=3">
+              <div class="capitulo">
+                <img src="" class="imagem1" alt="">
+                <p>Episódio 3</p>
+                <h3 class="epTitulo" class="titulo"></h3>
+              </div>
+            </a>
+          </div>   
+          
+        </div>
+    </main>
+    <script src="scriptPágina.js"></script>
+</body>
+</html>
